@@ -4,14 +4,22 @@ public class Dossier {
     private int id;
     private float prix_retour;
     private String status;
+    private int id_m;
+    private int id_cm;
+    private int id_a;
+    private int id_p;
 
     public Dossier() {
     }
 
-    public Dossier(int id, float prix_retour, String status) {
+    public Dossier(int id, float prix_retour, String status, int id_m, int id_cm, int id_a ,int id_p) {
         this.id = id;
         this.prix_retour = prix_retour;
         this.status = status;
+        this.id_m = id_m;
+        this.id_cm = id_cm;
+        this.id_a = id_a;
+        this.id_p = id_p;
     }
 
     public int getId() {
@@ -38,6 +46,38 @@ public class Dossier {
         this.status = status;
     }
 
+    public int getId_m() {
+        return id_m;
+    }
+
+    public void setId_m(int id_m) {
+        this.id_m = id_m;
+    }
+
+    public int getId_cm() {
+        return id_cm;
+    }
+
+    public void setId_cm(int id_cm) {
+        this.id_cm = id_cm;
+    }
+
+    public int getId_a() {
+        return id_a;
+    }
+
+    public void setId_a(int id_a) {
+        this.id_a = id_a;
+    }
+
+    public int getId_p() {
+        return id_p;
+    }
+
+    public void setId_p(int id_p) {
+        this.id_p = id_p;
+    }
+
     public static AgentBuilder builder(){
         return new AgentBuilder();
     }
@@ -48,6 +88,10 @@ public class Dossier {
                 "id=" + id +
                 ", prix_retour=" + prix_retour +
                 ", status='" + status + '\'' +
+                ", id_a='" + id_a + '\'' +
+                ", id_m='" + id_m + '\'' +
+                ", id_cm='" + id_cm + '\'' +
+                ", id_p='" + id_p + '\'' +
                 '}';
     }
 }

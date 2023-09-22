@@ -1,9 +1,10 @@
 package com.macnss.Model;
 
 public class PatientBuilder {
-    String matrecule;
-    String nom;
-    String prenom;
+    private String matrecule;
+    private String nom;
+    private String prenom;
+    private int id_d;
 
     public PatientBuilder matrecule(String matrecule) {
         this.matrecule = matrecule;
@@ -20,7 +21,12 @@ public class PatientBuilder {
         return this;
     }
 
+    public PatientBuilder id_d(int id_d) {
+        this.id_d = id_d;
+        return this;
+    }
+
     public Patient build(){
-        return new Patient(matrecule, nom, prenom);
+        return new Patient(matrecule, nom, prenom, id_d);
     }
 }

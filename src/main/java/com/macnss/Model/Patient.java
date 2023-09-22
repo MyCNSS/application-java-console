@@ -1,17 +1,19 @@
 package com.macnss.Model;
 
 public class Patient {
-    String matrecule;
-    String nom;
-    String prenom;
+    private String matrecule;
+    private String nom;
+    private String prenom;
+    private int id_d;
 
     public Patient() {
     }
 
-    public Patient(String matrecule, String nom, String prenom) {
+    public Patient(String matrecule, String nom, String prenom, int id_d) {
         this.matrecule = matrecule;
         this.nom = nom;
         this.prenom = prenom;
+        this.id_d = id_d;
     }
 
     public String getMatrecule() {
@@ -38,6 +40,14 @@ public class Patient {
         this.prenom = prenom;
     }
 
+    public int getId_d() {
+        return id_d;
+    }
+
+    public void setId_d(int id_d) {
+        this.id_d = id_d;
+    }
+
     public static PatientBuilder builder(){
         return new PatientBuilder();
     }
@@ -48,6 +58,7 @@ public class Patient {
                 "matrecule='" + matrecule + '\'' +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
+                ", id_d='" + id_d + '\'' +
                 '}';
     }
 }
