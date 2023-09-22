@@ -6,19 +6,17 @@ public class Agent {
     private String password;
     private String nom;
     private String prenom;
-    private int id_d;
 
 
     public Agent() {
     }
 
-    public Agent(int id, String email, String password, String nom, String prenom, int id_d) {
+    public Agent(int id, String email, String password, String nom, String prenom) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.nom = nom;
         this.prenom = prenom;
-        this.id_d = id_d;
     }
 
     public int getId() {
@@ -61,14 +59,6 @@ public class Agent {
         this.prenom = prenom;
     }
 
-    public int getId_d() {
-        return id_d;
-    }
-
-    public void setId_d(int id_d) {
-        this.id_d = id_d;
-    }
-
     public static AgentBuilder builder(){
         return new AgentBuilder();
     }
@@ -82,7 +72,6 @@ public class Agent {
                 ", password='" + password + '\'' +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", id_d='" + id_d + '\'' +
                 '}';
     }
 }

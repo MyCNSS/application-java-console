@@ -6,8 +6,8 @@ import com.macnss.Model.Agent;
 import java.util.List;
 
 public interface AdminDao {
-    boolean ajoutAgent(com.macnss.Model.Agent agent);
-    boolean modiferAgent(com.macnss.Model.Agent agent);
+    boolean ajoutAgent(Agent agent);
+    boolean modiferAgent(Agent agent);
     boolean supprissionAgent(String email);
     List<Agent> affichageAgent();
     Admin login(Admin admin);

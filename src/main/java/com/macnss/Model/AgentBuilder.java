@@ -6,7 +6,6 @@ public class AgentBuilder {
     private String password;
     private String nom;
     private String prenom;
-    private int id_d;
 
     public AgentBuilder id(int id){
         this.id = id;
@@ -28,11 +27,7 @@ public class AgentBuilder {
         this.prenom = prenom;
         return this;
     }
-    public AgentBuilder id_d(int id_d){
-        this.id_d = id_d;
-        return this;
-    }
     public Agent build(){
-        return new Agent(id, email, password, nom, prenom, id_d);
+        return new Agent(id, email, password, nom, prenom);
     }
 }

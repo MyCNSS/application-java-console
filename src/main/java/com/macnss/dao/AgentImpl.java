@@ -10,11 +10,6 @@ public class AgentImpl implements AgentDao{
     }
 
     @Override
-    public float calculeDossier(int id_d, int id_c, int id_m, int id_cm, int id_tc) {
-        return 0;
-    }
-
-    @Override
     public boolean modifierDssier(Dossier dossier) {
         return false;
     }
