@@ -294,3 +294,11 @@ public class CodeGenerator {
     CategorieDao categorieDao = new CategorieImpl();
     System.out.println(categorieDao.affichageCategorieByID(1));
 ````
+````JAVA
+    ConsultationMedicaleDao consultationMedicaleDao = new ConsultationMedicaleImpl();
+    consultationMedicaleDao.affichageConsultationMedicales().forEach(System.out::println);
+````
+````JAVA
+    ConsultationMedicaleDao consultationMedicaleDao = new ConsultationMedicaleImpl();
+    System.out.println(consultationMedicaleDao.affichageConsultationMedicalesByIDTypeConsultations(1));
+````

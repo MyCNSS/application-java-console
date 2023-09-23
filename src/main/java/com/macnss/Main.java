@@ -10,7 +10,6 @@ import java.util.prefs.Preferences;
 
 public class Main {
     public static void main(String[] args) {
-        CategorieDao categorieDao = new CategorieImpl();
-        System.out.println(categorieDao.affichageCategorieByID(1));
+
     }
 }
