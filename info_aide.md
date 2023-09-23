@@ -302,3 +302,11 @@ public class CodeGenerator {
     ConsultationMedicaleDao consultationMedicaleDao = new ConsultationMedicaleImpl();
     System.out.println(consultationMedicaleDao.affichageConsultationMedicalesByIDTypeConsultations(1));
 ````
+````JAVA
+    MedicamentDao medicamentDao = new MedicamentImpl();
+    System.out.println(medicamentDao.affichageMedicamentsByIDCategorie(1));
+````
+````JAVA
+    MedicamentDao medicamentDao = new MedicamentImpl();
+    medicamentDao.affichageMedicaments().forEach(System.out::println);
+````
