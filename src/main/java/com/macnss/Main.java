@@ -10,6 +10,7 @@ import java.util.prefs.Preferences;
 
 public class Main {
     public static void main(String[] args) {
-
+        AgentDao agentDao = new AgentImpl();
+        agentDao.affichageDossier().forEach(System.out::println);
     }
 }

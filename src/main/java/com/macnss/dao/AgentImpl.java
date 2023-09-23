@@ -1,7 +1,6 @@
 package com.macnss.dao;
 
 import com.macnss.DBconnection.DBconnection;
-import com.macnss.Model.Admin;
 import com.macnss.Model.Agent;
 import com.macnss.Model.Dossier;
 import com.macnss.helpers.helpers;
@@ -11,8 +10,45 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 
 public class AgentImpl implements AgentDao{
+    @Override
+    public List<Dossier> affichageDossier() {
+        Connection con =DBconnection.getConnection();
+
+        List<Dossier> dossiers = new LinkedList<>();
+
+        String query = "SELECT * FROM dossier";
+        try (PreparedStatement preparedStatement = con.prepareStatement((query))){
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                Dossier dossier = new Dossier (resultSet.getInt("id"),
+                        resultSet.getFloat("prix_retour"),
+                        resultSet.getString("status"),
+                        resultSet.getInt("id_medicament"),
+                        resultSet.getInt("id_consultation_medicale"),
+                        resultSet.getInt("id_A"),
+                        resultSet.getString("matrecule"));
+                dossiers.add(dossier);
+            }
+
+        } catch (SQLException se){
+            se.printStackTrace();
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException se){
+                se.printStackTrace();
+            }
+        }
+
+        return dossiers;
+    }
+
     @Override
     public boolean ajoutDossier(Dossier dossier) {
         Connection con = DBconnection.getConnection();

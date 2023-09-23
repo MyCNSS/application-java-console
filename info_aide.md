@@ -282,3 +282,7 @@ public class CodeGenerator {
     System.out.println(NOM);
     System.out.println(ID);
 ````
+````JAVA
+    AgentDao agentDao = new AgentImpl();
+    agentDao.affichageDossier().forEach(System.out::println);
+````
