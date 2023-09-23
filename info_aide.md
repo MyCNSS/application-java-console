@@ -149,3 +149,76 @@ public class CodeGenerator {
     int randomCode = helpers.generateCode();
     System.out.println("Code généré : " + randomCode);
 ```
+```JAVA
+    import javax.mail.*;
+    import javax.mail.internet.InternetAddress;
+    import javax.mail.internet.MimeMessage;
+    import java.util.Properties;
+
+    public class Email {
+        final static String IMG = "<img src=\"https://www.mapcasablanca.ma/map/uploads/2021/06/CNSS-3.jpg\" alt=\"logo\" width=\"100\" height=\"100\">";
+        public static Boolean sendMail(String body,String subject ,String email) {
+            final String username = "user@gmail.com";
+            final String password = "password";
+            Properties properties = System.getProperties();
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.host","smtp.gmail.com");
+            properties.put("mail.smtp.port","25");
+            properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+            properties.put("mail.smtp.starttls.enable", "true");
+            Session session = Session.getInstance(properties, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password);
+                }
+            });
+            try {
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(username));
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+                message.setSubject(subject);
+                message.setText(body);
+                Transport.send(message);
+                return true;
+            } catch (MessagingException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+    }
+```
+````JAVA
+    int randomCode = helpers.generateCode();
+    String body = "Code généré : " + randomCode;
+    String subject = "Confirmer votre email";
+    String email = "uanemaro216@gmail.com";
+    boolean resultat = helpers.sendMail(body,subject,email);
+    if (resultat == true){
+        System.out.println("sended");
+    } else {
+        System.out.println("note Sended");
+    }
+````
+````JAVA
+    DossierDao dossierDao = new DossierImpl();
+    float prix_retour = dossierDao.calculeDossier(1, 2);
+    System.out.println(prix_retour);
+````
+````JAVA
+    DossierDao dossierDao = new DossierImpl();
+    float prix_retour = dossierDao.calculeDossier(1, 2);
+    AgentDao agentDao = new AgentImpl();
+    Dossier dossier = Dossier.builder()
+            .prix_retour(prix_retour)
+            .matrecule("BouMar2022")
+            .id_a(1)
+            .id_m(1)
+            .id_cm(2)
+            .build();
+    boolean resultat = agentDao.ajoutDossier(dossier);
+    if (resultat == true){
+        System.out.println("added");
+    }else {
+        System.out.println("not added");
+    }
+````

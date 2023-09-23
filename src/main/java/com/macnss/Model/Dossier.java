@@ -7,19 +7,19 @@ public class Dossier {
     private int id_m;
     private int id_cm;
     private int id_a;
-    private int id_p;
+    private String  matrecule;
 
     public Dossier() {
     }
 
-    public Dossier(int id, float prix_retour, String status, int id_m, int id_cm, int id_a ,int id_p) {
+    public Dossier(int id, float prix_retour, String status, int id_m, int id_cm, int id_a ,String matrecule) {
         this.id = id;
         this.prix_retour = prix_retour;
         this.status = status;
         this.id_m = id_m;
         this.id_cm = id_cm;
         this.id_a = id_a;
-        this.id_p = id_p;
+        this.matrecule = matrecule;
     }
 
     public int getId() {
@@ -70,16 +70,16 @@ public class Dossier {
         this.id_a = id_a;
     }
 
-    public int getId_p() {
-        return id_p;
+    public String  getMatrecule() {
+        return matrecule;
     }
 
-    public void setId_p(int id_p) {
-        this.id_p = id_p;
+    public void setMatrecule(String  matrecule) {
+        this.matrecule = matrecule;
     }
 
-    public static AgentBuilder builder(){
-        return new AgentBuilder();
+    public static DossierBuilder builder(){
+        return new DossierBuilder();
     }
 
     @Override
@@ -91,7 +91,7 @@ public class Dossier {
                 ", id_a='" + id_a + '\'' +
                 ", id_m='" + id_m + '\'' +
                 ", id_cm='" + id_cm + '\'' +
-                ", id_p='" + id_p + '\'' +
+                ", matrecule='" + matrecule + '\'' +
                 '}';
     }
 }

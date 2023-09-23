@@ -7,7 +7,7 @@ public class DossierBuilder {
     private int id_m;
     private int id_cm;
     private int id_a;
-    private int id_p;
+    private String  matrecule;
 
     public DossierBuilder id(int id) {
         this.id = id;
@@ -37,12 +37,12 @@ public class DossierBuilder {
         return this;
     }
 
-    public DossierBuilder id_p(int id_p) {
-        this.id_p = id_p;
+    public DossierBuilder matrecule(String matrecule) {
+        this.matrecule = matrecule;
         return this;
     }
 
     public Dossier build(){
-        return new Dossier(id, prix_retour, status, id_m, id_cm, id_a , id_p);
+        return new Dossier(id, prix_retour, status, id_m, id_cm, id_a , matrecule);
     }
 }
