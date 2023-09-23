@@ -286,3 +286,11 @@ public class CodeGenerator {
     AgentDao agentDao = new AgentImpl();
     agentDao.affichageDossier().forEach(System.out::println);
 ````
+````JAVA
+    CategorieDao categorieDao = new CategorieImpl();
+    categorieDao.affichageCategories().forEach(System.out::println);
+````
+````JAVA
+    CategorieDao categorieDao = new CategorieImpl();
+    System.out.println(categorieDao.affichageCategorieByID(1));
+````
