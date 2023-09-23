@@ -7,6 +7,6 @@ public interface AgentDao {
     boolean ajoutDossier(Dossier dossier);
     boolean modifierDossier(Dossier dossier);
     boolean supprisionDossier(int id_dossier);
-    boolean comfirmationDossier(int id, String status);
+    boolean comfirmationDossier(int id, int status);
     Agent login (Agent agent);
 }

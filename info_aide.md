@@ -222,3 +222,63 @@ public class CodeGenerator {
         System.out.println("not added");
     }
 ````
+````JAVA
+    DossierDao dossierDao = new DossierImpl();
+    float prix_retour = dossierDao.calculeDossier(1, 2);
+    AgentDao agentDao = new AgentImpl();
+    Dossier dossier = Dossier.builder()
+            .id(1)
+            .prix_retour(prix_retour)
+            .matrecule("BouMar2022")
+            .id_a(1)
+            .id_m(1)
+            .id_cm(2)
+            .build();
+    boolean resultat = agentDao.modifierDossier(dossier);
+    if (resultat == true){
+        System.out.println("updated");
+    }else {
+        System.out.println("not updated");
+    }
+````
+`````JAVA
+    AgentDao agentDao = new AgentImpl();
+    boolean resultat = agentDao.supprisionDossier(2);
+    if (resultat == true){
+        System.out.println("deleted");
+    }else {
+        System.out.println("not deleted");
+    }
+`````
+`````JAVA
+    AgentDao agentDao = new AgentImpl();
+    boolean resultat = agentDao.comfirmationDossier(2,1);
+    if (resultat == true){
+        System.out.println("status updated");
+    }else {
+        System.out.println("not status updated");
+    }
+`````
+````JAVA
+    Preferences preferences = Preferences.userNodeForPackage(Main.class);
+    AgentDao agentDao = new AgentImpl();
+    Agent agent = Agent.builder()
+            .email("uanemaro216@gmail.com")
+            .password("Marouane216@")
+            .build();
+    agent = agentDao.login(agent);
+    preferences.put("EMAIL", agent.getEmail());
+    preferences.put("NOM", agent.getNom());
+    preferences.put("PRENOM", agent.getPrenom());
+    preferences.putInt("ID", agent.getId());
+
+    String EMAIL = preferences.get("EMAIL", "null");
+    String NOM = preferences.get("NOM", "null");
+    String PRENOM = preferences.get("PRENOM", "null");
+    int ID = preferences.getInt("ID", -1);
+
+    System.out.println(EMAIL);
+    System.out.println(PRENOM);
+    System.out.println(NOM);
+    System.out.println(ID);
+````
