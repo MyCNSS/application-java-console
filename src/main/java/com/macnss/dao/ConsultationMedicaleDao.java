@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface ConsultationMedicaleDao {
     List<ConsultationMedicale> affichageConsultationMedicales();
-    ConsultationMedicale affichageConsultationMedicalesByIDTypeConsultations(int id);
 }

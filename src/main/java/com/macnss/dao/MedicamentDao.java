@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface MedicamentDao {
     List<Medicament> affichageMedicaments();
-    Medicament affichageMedicamentsByIDCategorie(int id);
 }

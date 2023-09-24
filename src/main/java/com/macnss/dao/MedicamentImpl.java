@@ -41,34 +41,4 @@ public class MedicamentImpl implements MedicamentDao{
 
         return medicaments;
     }
-
-    @Override
-    public Medicament affichageMedicamentsByIDCategorie(int id) {
-        Connection con = DBconnection.getConnection();
-
-        Medicament medicament = null;
-
-        String query = "SELECT * FROM medicament WHERE id = ?";
-        try (PreparedStatement preparedStatement = con.prepareStatement((query))){
-            preparedStatement.setInt(1,id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()){
-                medicament = new Medicament (resultSet.getInt("id"),
-                        resultSet.getString("nom_m"),
-                        resultSet.getFloat("prix_medicament"));
-            }
-
-        } catch (SQLException se){
-            se.printStackTrace();
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException se){
-                se.printStackTrace();
-            }
-        }
-
-        return medicament;
-    }
 }

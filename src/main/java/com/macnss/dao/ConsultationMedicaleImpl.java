@@ -41,34 +41,4 @@ public class ConsultationMedicaleImpl implements ConsultationMedicaleDao {
 
         return consultationMedicales;
     }
-
-    @Override
-    public ConsultationMedicale affichageConsultationMedicalesByIDTypeConsultations(int id) {
-        Connection con = DBconnection.getConnection();
-
-        ConsultationMedicale consultationMedicale = null;
-
-        String query = "SELECT * FROM consultationmedicale CM, typeconsultation TC WHERE CM.id_type_consultation_medicale = TC.id AND CM.id =?";
-        try (PreparedStatement preparedStatement = con.prepareStatement((query))){
-            preparedStatement.setInt(1,id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()){
-                consultationMedicale = new ConsultationMedicale (resultSet.getInt("id"),
-                        resultSet.getString("nom_CM"),
-                        resultSet.getFloat("prix_consultation_medicale"));
-            }
-
-        } catch (SQLException se){
-            se.printStackTrace();
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException se){
-                se.printStackTrace();
-            }
-        }
-
-        return consultationMedicale;
-    }
 }
