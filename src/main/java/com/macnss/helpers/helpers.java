@@ -19,7 +19,6 @@ public class helpers {
 
         return Integer.parseInt(codeString);
     }
-    final static String IMG = "<img src=\"https://www.mapcasablanca.ma/map/uploads/2021/06/CNSS-3.jpg\" alt=\"logo\" width=\"100\" height=\"100\">";
     public static Boolean sendMail(String body,String subject ,String email) {
         final String username = "uanemaro216@gmail.com";
         final String password = "refdrwsqtrmlhzdm";
@@ -48,7 +47,6 @@ public class helpers {
             return false;
         }
     }
-
     static String jauneColor = "\u001B[93m";
     static String purpleColor = "\u001B[35m";
     static String defautColor = "\u001B[0m";
@@ -98,7 +96,6 @@ public class helpers {
         }
         return tr;
     }
-
     public static String createTableAgents(String td){
         String tr = jauneColor + "+";
         if (td == "empty1"){
@@ -473,13 +470,11 @@ public class helpers {
         tr += jauneColor + "|" + defautColor;
         return tr;
     }
-
     public static void clearConsole(int taille) {
         for (int i = 0; i < taille; i++) {
             System.out.println();
         }
     }
-
     public static void FermetureProgramme(){
 
         System.out.print(getVertClairColor() +"Fermeture du programme" + getDefautColor());
@@ -498,23 +493,15 @@ public class helpers {
             e.printStackTrace();
         }
     }
-
     public static String getJauneColor() {
         return jauneColor;
     }
-
-    public static String getPurpleColor() {
-        return purpleColor;
-    }
-
     public static String getDefautColor() {
         return defautColor;
     }
-
     public static String getVertClairColor() {
         return vertClairColor;
     }
-
     public static String getRougeClairColor() {
         return rougeClairColor;
     }
