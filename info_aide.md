@@ -276,17 +276,17 @@ public class CodeGenerator {
                         preferences.put("MATRECULE", "null");
                         preferences.putInt("ID", agent.getId());
 
-        String EMAIL = preferences.get("EMAIL", "null");
-        String NOM = preferences.get("NOM", "null");
-        String PRENOM = preferences.get("PRENOM", "null");
-        String  MATRECULE = preferences.get("MATRECULE", "null");
-        int ID = preferences.getInt("ID", -1);
+    String EMAIL = preferences.get("EMAIL", "null");
+    String NOM = preferences.get("NOM", "null");
+    String PRENOM = preferences.get("PRENOM", "null");
+    String  MATRECULE = preferences.get("MATRECULE", "null");
+    int ID = preferences.getInt("ID", -1);
 
-        System.out.println(EMAIL);
-        System.out.println(PRENOM);
-        System.out.println(NOM);
-        System.out.println(MATRECULE);
-        System.out.println(ID);
+    System.out.println(EMAIL);
+    System.out.println(PRENOM);
+    System.out.println(NOM);
+    System.out.println(MATRECULE);
+    System.out.println(ID);
 ````
 ````JAVA
     AgentDao agentDao = new AgentImpl();
@@ -331,11 +331,8 @@ public class CodeGenerator {
 ````JAVA
 Preferences preferences = Preferences.userNodeForPackage(Main.class);
         PatientDao patientDao = new PatientImpl();
-        Patient patient = Patient.builder()
-                .email("uanemaro216@gmail.com")
-                .password("Marouane216@")
-                .build();
-        patient = patientDao.login(patient);
+        String  matrecule = "BouMar2022";
+        Patient = patient = patientDao.login(matrecule);
         preferences.put("EMAIL", patient.getEmail());
         preferences.put("NOM", patient.getNom());
         preferences.put("PRENOM", patient.getPrenom());

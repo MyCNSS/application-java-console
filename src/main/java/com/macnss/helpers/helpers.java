@@ -480,6 +480,25 @@ public class helpers {
         }
     }
 
+    public static void FermetureProgramme(){
+
+        System.out.print(getVertClairColor() +"Fermeture du programme" + getDefautColor());
+        try {
+            String points = "";
+            for (int i = 0; i < 3; i++) {
+                points += " .";
+                System.out.flush();
+                Thread.sleep(500);
+                System.out.print("\r");
+                System.out.print(getVertClairColor() +"Fermeture du programme" + points + getDefautColor());
+                Thread.sleep(500);
+            }
+            clearConsole(30);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static String getJauneColor() {
         return jauneColor;
     }

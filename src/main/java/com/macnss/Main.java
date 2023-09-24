@@ -96,6 +96,7 @@ public class Main {
                         preferences.put("NOM", admin.getNom());
                         preferences.put("PRENOM", admin.getPrenom());
                         preferences.putInt("ID", admin.getId());
+                        preferences.put("MATRECULE", "null");
 
                         clearConsole(30);
 
@@ -241,6 +242,7 @@ public class Main {
                         preferences.put("NOM", agent.getNom());
                         preferences.put("PRENOM", agent.getPrenom());
                         preferences.putInt("ID", agent.getId());
+                        preferences.put("MATRECULE", "null");
 
 
                         clearConsole(30);
@@ -448,14 +450,88 @@ public class Main {
                                 System.out.println("Choix invalide. Selectionnez un choix valide.");
                         }
                     }else {
-                    System.out.println("Le code de confirmation est non valide");
-                    break;
-                }
+                        System.out.println("Le code de confirmation est non valide");
+                        break;
+                    }
                     break;
                 case 3:
+                    System.out.println("Entrer votre matrecule");
+                    matrecule=scanner.nextLine();
+
+                    Patient patient = patientDao.login(matrecule);
+                    if (patient.getemail() == "null"){
+                        System.out.println("Matrecule est invalid");
+                        break;
+                    } else {
+                        randomCode = helpers.generateCode();
+                        body = "Code généré : " + randomCode;
+                        subject = "Confirmer votre email";
+                        helpers.sendMail(body,subject,patient.getemail());
+
+                        System.out.println("Le code de confirmation de confirmation est envoyer a votre adresse mail");
+                        System.out.println("Entrer votre code de confirmation");
+                        codeConfirmation=scanner.nextInt();
+                        scanner.nextLine();
+
+                        if (codeConfirmation == randomCode){
+                            preferences.put("EMAIL", patient.getemail());
+                            preferences.put("NOM", patient.getNom());
+                            preferences.put("PRENOM", patient.getPrenom());
+                            preferences.putInt("ID", -1);
+                            preferences.put("MATRECULE", patient.getMatrecule());
+
+                            clearConsole(30);
+
+                            System.out.println(createTable("", ""));
+                            System.out.println(createTable("Menu", getRougeClairColor()));
+                            System.out.println(createTable("", ""));
+                            System.out.println(createTable("1.Voir l'Historique Des dossiers", getVertClairColor()));
+                            System.out.println(createTable("2.Voir l'Historique D'un' dossier", getVertClairColor()));
+                            System.out.println(createTable("0.Quitter", getVertClairColor()));
+                            System.out.println(createTable("", ""));
+
+                            System.out.print("Enterez votre choix (0-2): ");
+                            choix = scanner.nextInt();
+                            scanner.nextLine();
+                            clearConsole(30);
+
+                            switch (choix){
+                                case 1:
+                                    System.out.println(createTrDossiers("sans1"));
+                                    System.out.println(createTrDossiers("List des Dossiers"));
+                                    System.out.println(createTrDossiers("sans2"));
+                                    System.out.println(createTrDossiers("sans3"));
+                                    System.out.println(createTrDossiers("sans2"));
+                                    patientDao.voirHistorique(preferences.get("MATRECULE", "null"),0).forEach(System.out::println);
+                                    System.out.println(createTrDossiers("sans2"));
+                                    break;
+                                case 2:
+                                    System.out.println("Entrer Id de Dossier");
+                                    id=scanner.nextInt();
+                                    scanner.nextLine();
+
+                                    System.out.println(createTrDossiers("sans1"));
+                                    System.out.println(createTrDossiers("List des Dossiers"));
+                                    System.out.println(createTrDossiers("sans2"));
+                                    System.out.println(createTrDossiers("sans3"));
+                                    System.out.println(createTrDossiers("sans2"));
+                                    patientDao.voirHistorique(matrecule,id).forEach(System.out::println);
+                                    System.out.println(createTrDossiers("sans2"));
+                                    break;
+                                case 0:
+                                    break;
+                                default:
+                                    System.out.println("Choix invalide. Selectionnez un choix valide.");
+                            }
+                        }else {
+                            System.out.println("Le code de confirmation est non valide");
+                            break;
+                        }
+
+                    }
+
                     break;
                 case 0:
-                    System.out.println("Fermeture du programme.");
                     break;
                 default:
                     System.out.println("Choix invalide. Selectionnez un choix valide.");
@@ -472,6 +548,7 @@ public class Main {
                 clearConsole(30);
             }
         } while (choix != 0);
+        FermetureProgramme();
         System.out.println("Soyez les bienvenus !");
     }
 }
