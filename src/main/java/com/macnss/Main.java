@@ -1,11 +1,9 @@
 package com.macnss;
 
-import com.macnss.DBconnection.DBconnection;
 import com.macnss.Model.*;
 import com.macnss.dao.*;
 import com.macnss.helpers.*;
 
-import java.sql.Connection;
 import java.util.Scanner;
 import java.util.prefs.Preferences;
 
@@ -18,12 +16,10 @@ public class Main {
 
         AdminDao adminDao = new AdminImpl();
         AgentDao agentDao = new AgentImpl();
-        CategorieDao categorieDao = new CategorieImpl();
         ConsultationMedicaleDao consultationMedicaleDao = new ConsultationMedicaleImpl();
         DossierDao dossierDao = new DossierImpl();
         MedicamentDao medicamentDao = new MedicamentImpl();
         PatientDao patientDao = new PatientImpl();
-        TypeConsultationDao typeConsultationDao = new TypeConsultationImpl();
 
         Preferences preferences = Preferences.userNodeForPackage(Main.class);
 

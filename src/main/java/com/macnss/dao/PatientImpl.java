@@ -1,10 +1,8 @@
 package com.macnss.dao;
 
 import com.macnss.DBconnection.DBconnection;
-import com.macnss.Model.Admin;
 import com.macnss.Model.Dossier;
 import com.macnss.Model.Patient;
-import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
