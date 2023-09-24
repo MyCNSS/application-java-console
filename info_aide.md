@@ -108,15 +108,18 @@
         preferences.put("NOM", admin.getNom());
         preferences.put("PRENOM", admin.getPrenom());
         preferences.putInt("ID", admin.getId());
+        preferences.put("MATRECULE", "null");
 
         String EMAIL = preferences.get("EMAIL", "null");
         String NOM = preferences.get("NOM", "null");
         String PRENOM = preferences.get("PRENOM", "null");
+        String  MATRECULE = preferences.get("MATRECULE", "null");
         int ID = preferences.getInt("ID", -1);
 
         System.out.println(EMAIL);
         System.out.println(PRENOM);
         System.out.println(NOM);
+        System.out.println(MATRECULE);
         System.out.println(ID);
 ```
 ```JAVA
@@ -262,25 +265,28 @@ public class CodeGenerator {
 ````JAVA
     Preferences preferences = Preferences.userNodeForPackage(Main.class);
     AgentDao agentDao = new AgentImpl();
-    Agent agent = Agent.builder()
-            .email("uanemaro216@gmail.com")
-            .password("Marouane216@")
-            .build();
-    agent = agentDao.login(agent);
-    preferences.put("EMAIL", agent.getEmail());
-    preferences.put("NOM", agent.getNom());
-    preferences.put("PRENOM", agent.getPrenom());
-    preferences.putInt("ID", agent.getId());
+                        Agent agent = Agent.builder()
+                                .email("uanemaro216@gmail.com")
+                                .password("Marouane216@")
+                                .build();
+                        agent = agentDao.login(agent);
+                        preferences.put("EMAIL", agent.getEmail());
+                        preferences.put("NOM", agent.getNom());
+                        preferences.put("PRENOM", agent.getPrenom());
+                        preferences.put("MATRECULE", "null");
+                        preferences.putInt("ID", agent.getId());
 
-    String EMAIL = preferences.get("EMAIL", "null");
-    String NOM = preferences.get("NOM", "null");
-    String PRENOM = preferences.get("PRENOM", "null");
-    int ID = preferences.getInt("ID", -1);
+        String EMAIL = preferences.get("EMAIL", "null");
+        String NOM = preferences.get("NOM", "null");
+        String PRENOM = preferences.get("PRENOM", "null");
+        String  MATRECULE = preferences.get("MATRECULE", "null");
+        int ID = preferences.getInt("ID", -1);
 
-    System.out.println(EMAIL);
-    System.out.println(PRENOM);
-    System.out.println(NOM);
-    System.out.println(ID);
+        System.out.println(EMAIL);
+        System.out.println(PRENOM);
+        System.out.println(NOM);
+        System.out.println(MATRECULE);
+        System.out.println(ID);
 ````
 ````JAVA
     AgentDao agentDao = new AgentImpl();
@@ -318,3 +324,37 @@ public class CodeGenerator {
     TypeConsultationDao typeConsultationDao = new TypeConsultationImpl();
     typeConsultationDao.affichageTypeConsultations().forEach(System.out::println);
 ````
+````JAVA
+    PatientDao patientDao = new PatientImpl();
+    patientDao.voirHistorique("BouMar2022",0).forEach(System.out::println);
+````
+````JAVA
+Preferences preferences = Preferences.userNodeForPackage(Main.class);
+        PatientDao patientDao = new PatientImpl();
+        Patient patient = Patient.builder()
+                .email("uanemaro216@gmail.com")
+                .password("Marouane216@")
+                .build();
+        patient = patientDao.login(patient);
+        preferences.put("EMAIL", patient.getEmail());
+        preferences.put("NOM", patient.getNom());
+        preferences.put("PRENOM", patient.getPrenom());
+        preferences.put("MATRECULE", patient.getMatrecule());
+        preferences.putInt("ID", -1);
+
+        String EMAIL = preferences.get("EMAIL", "null");
+        String NOM = preferences.get("NOM", "null");
+        String PRENOM = preferences.get("PRENOM", "null");
+        String  MATRECULE = preferences.get("MATRECULE", "null");
+        int ID = preferences.getInt("ID", -1);
+
+        System.out.println(EMAIL);
+        System.out.println(PRENOM);
+        System.out.println(NOM);
+        System.out.println(MATRECULE);
+        System.out.println(ID);
+````
+`````TXT
+    146-2 = 144
+    144 / 3 = 48
+`````

@@ -1,5 +1,7 @@
 package com.macnss.Model;
 
+import static com.macnss.helpers.helpers.*;
+
 public class Dossier {
     private int id;
     private float prix_retour;
@@ -84,14 +86,16 @@ public class Dossier {
 
     @Override
     public String toString() {
-        return "Dossier{" +
-                "id=" + id +
-                ", prix_retour=" + prix_retour +
-                ", status='" + status + '\'' +
-                ", id_a='" + id_a + '\'' +
-                ", id_m='" + id_m + '\'' +
-                ", id_cm='" + id_cm + '\'' +
-                ", matrecule='" + matrecule + '\'' +
-                '}';
+        String tr = getJauneColor() + "|";
+
+        tr += createTrTdDossier(String.valueOf(id));
+        tr += createTrTdDossier(String.valueOf(prix_retour));
+        tr += createTrTdDossier(status);
+        tr += createTrTdDossier(String.valueOf(id_a));
+        tr += createTrTdDossier(String.valueOf(id_m));
+        tr += createTrTdDossier(String.valueOf(id_cm));
+        tr += createTrTdDossier(matrecule);
+
+        return tr;
     }
 }

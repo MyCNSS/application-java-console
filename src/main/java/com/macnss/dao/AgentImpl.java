@@ -159,10 +159,10 @@ public class AgentImpl implements AgentDao{
                             String subject = "Confirmation de votre dossier";
                             boolean resultat = helpers.sendMail(body,subject,email);
                             if (resultat == true){
-                                System.out.println("sended");
+                                System.out.println("Email de Confirmation a ete envoyer");
                                 return true;
                             } else {
-                                System.out.println("note Sended");
+                                System.out.println("Email de Confirmation n'a pas ete envoyer");
                                 return false;
                             }
                         }
@@ -171,10 +171,10 @@ public class AgentImpl implements AgentDao{
                             String subject = "Confirmation de votre dossier";
                             boolean resultat = helpers.sendMail(body,subject,email);
                             if (resultat == true){
-                                System.out.println("sended");
+                                System.out.println("Email de Confirmation a ete envoyer");
                                 return true;
                             } else {
-                                System.out.println("note Sended");
+                                System.out.println("Email de Confirmation n'a pas ete envoyer");
                                 return false;
                             }
                         }

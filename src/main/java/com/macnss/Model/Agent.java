@@ -1,5 +1,6 @@
 package com.macnss.Model;
 
+import static com.macnss.helpers.helpers.*;
 public class Agent {
     private int id;
     private String email;
@@ -66,12 +67,13 @@ public class Agent {
 
     @Override
     public String toString() {
-        return "Agent{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                '}';
+        String tr = getJauneColor() + "|";
+
+        tr += createTrTdAgents(String.valueOf(id));
+        tr += createTrTdAgents(nom);
+        tr += createTrTdAgents(prenom);
+        tr += createTrTdAgents(email);
+
+        return tr;
     }
 }

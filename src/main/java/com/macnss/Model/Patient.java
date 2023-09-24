@@ -4,16 +4,16 @@ public class Patient {
     private String matrecule;
     private String nom;
     private String prenom;
-    private int id_d;
+    private String email;
 
     public Patient() {
     }
 
-    public Patient(String matrecule, String nom, String prenom, int id_d) {
+    public Patient(String matrecule, String nom, String prenom, String email) {
         this.matrecule = matrecule;
         this.nom = nom;
         this.prenom = prenom;
-        this.id_d = id_d;
+        this.email = email;
     }
 
     public String getMatrecule() {
@@ -40,12 +40,12 @@ public class Patient {
         this.prenom = prenom;
     }
 
-    public int getId_d() {
-        return id_d;
+    public String getemail() {
+        return email;
     }
 
-    public void setId_d(int id_d) {
-        this.id_d = id_d;
+    public void setemail(String email) {
+        this.email = email;
     }
 
     public static PatientBuilder builder(){
@@ -58,7 +58,7 @@ public class Patient {
                 "matrecule='" + matrecule + '\'' +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", id_d='" + id_d + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
