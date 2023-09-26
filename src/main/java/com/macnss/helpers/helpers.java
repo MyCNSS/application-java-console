@@ -20,8 +20,8 @@ public class helpers {
         return Integer.parseInt(codeString);
     }
     public static Boolean sendMail(String body,String subject ,String email) {
-        final String username = "uanemaro216@gmail.com";
-        final String password = "refdrwsqtrmlhzdm";
+        final String username = "USERNAME@gmail.com";
+        final String password = "PASSWORD";
         Properties properties = System.getProperties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.host", "smtp.gmail.com");
